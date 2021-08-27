@@ -9,10 +9,11 @@ const availableNotes = [2000, 500, 100, 20, 10, 5, 1];
 checkButton.addEventListener("click", function validateBillAndCashAmount() {
   hideMessage();
   //Need to Convert it to Number for Skipping Error
-  if (Number(billAmount.value) > 0) {
-    console.log(typeof cashGiven.value); //String
-    if (Number(cashGiven.value) >= Number(billAmount.value)) {
-      const amountToBeReturned = cashGiven.value - billAmount.value;
+  const bill = Number(billAmount.value);
+  const cash = Number(cashGiven.value);
+  if (bill > 0) {
+    if (cash >= bill) {
+      const amountToBeReturned = cash - bill;
       console.log(amountToBeReturned);
       calculateChange(amountToBeReturned);
     } else {
